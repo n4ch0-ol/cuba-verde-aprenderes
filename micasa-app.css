@@ -1,0 +1,39 @@
+/* --- GENERAL --- */
+body { background-color: #f0f0f0; margin: 0; font-family: 'Segoe UI', sans-serif; font-size: 18px; }
+.página { background: white; border-radius: 20px; margin: 20px auto; max-width: 1200px; padding: 20px; display: flex; gap: 30px; min-height: 90vh; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* --- SIDEBAR --- */
+.sidebar { width: 280px; background: linear-gradient(180deg, #15ec44 0%, #ffffff 100%); border-radius: 20px; padding: 25px; box-sizing: border-box; flex-shrink: 0; text-align: center; }
+.sidebar h1 { color: #006400; margin: 0; }
+.sidebar h2 { color: #0c9629; margin: 5px 0 20px 0; }
+.btn-volver { display: block; margin-top: 20px; text-decoration: none; background: white; color: #006400; padding: 10px; border-radius: 8px; font-weight: bold; }
+
+/* --- CONTENIDO --- */
+.contenido { flex: 1; padding: 10px; }
+.top-bar { text-align: right; margin-bottom: 20px; }
+.top-bar img { height: 50px; margin-left: 10px; }
+
+.lista-funciones {
+    background-color: #2e7d32;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.lista-funciones h2 { border-bottom: 2px solid #a5d6a7; padding-bottom: 15px; margin-top: 0; }
+.lista-funciones ul { list-style: none; padding: 0; }
+.lista-funciones li {
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex; align-items: center;
+}
+.lista-funciones li::before { content: "✅"; margin-right: 15px; }
+
+/* --- ADAPTACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    .página { flex-direction: column; padding: 10px; width: 95%; margin: 10px auto; }
+    .sidebar { width: 100%; }
+    .lista-funciones { padding: 20px; }
+}

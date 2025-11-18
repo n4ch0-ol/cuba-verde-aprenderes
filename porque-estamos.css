@@ -1,0 +1,31 @@
+/* --- GENERAL --- */
+body { background-color: #f0f0f0; margin: 0; font-family: 'Segoe UI', sans-serif; font-size: 18px; }
+.página { background: white; border-radius: 20px; margin: 20px auto; max-width: 1200px; padding: 20px; display: flex; gap: 30px; min-height: 90vh; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* --- SIDEBAR --- */
+.sidebar { width: 280px; background: linear-gradient(180deg, #15ec44 0%, #ffffff 100%); border-radius: 20px; padding: 25px; box-sizing: border-box; flex-shrink: 0; text-align: center; }
+.sidebar h1 { color: #006400; margin: 0; }
+.sidebar h2 { color: #0c9629; margin: 5px 0 20px 0; }
+.btn-volver { display: block; margin-top: 20px; text-decoration: none; background: white; color: #006400; padding: 10px; border-radius: 8px; font-weight: bold; }
+
+/* --- CONTENIDO --- */
+.contenido { flex: 1; padding: 10px; }
+.header-logos { text-align: right; margin-bottom: 20px; }
+.header-logos img { height: 50px; margin-left: 10px; }
+
+.bloque-texto {
+    background-color: #e8f5e9;
+    border-left: 8px solid #0c9629;
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.bloque-texto h2 { color: #1b5e20; margin-top: 0; font-size: 2em; }
+.bloque-texto p { line-height: 1.8; font-size: 1.1em; margin-bottom: 20px; }
+
+/* --- ADAPTACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    .página { flex-direction: column; padding: 10px; width: 95%; margin: 10px auto; }
+    .sidebar { width: 100%; }
+    .bloque-texto { padding: 20px; }
+}

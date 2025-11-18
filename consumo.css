@@ -1,0 +1,33 @@
+/* --- GENERAL --- */
+body { background-color: #f0f0f0; margin: 0; font-family: 'Segoe UI', sans-serif; font-size: 18px; }
+.página { background: white; border-radius: 20px; margin: 20px auto; max-width: 1200px; padding: 20px; display: flex; gap: 30px; min-height: 90vh; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* --- SIDEBAR --- */
+.sidebar { width: 280px; background: linear-gradient(180deg, #15ec44 0%, #ffffff 100%); border-radius: 20px; padding: 25px; box-sizing: border-box; flex-shrink: 0; text-align: center; }
+.sidebar h1 { color: #006400; margin: 0; }
+.sidebar h2 { color: #0c9629; margin: 5px 0 20px 0; }
+.btn-volver { display: block; margin-top: 20px; text-decoration: none; background: white; color: #006400; padding: 10px; border-radius: 8px; font-weight: bold; }
+
+/* --- CONTENIDO --- */
+.contenido { flex: 1; padding: 10px; }
+.logos { text-align: right; margin-bottom: 20px; }
+.logos img { height: 50px; margin-left: 10px; }
+
+.resumen-card {
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.resumen-card h2 { color: #4caf50; border-bottom: 1px solid #555; padding-bottom: 15px; }
+.resumen-card ul { margin-top: 20px; padding-left: 20px; }
+.resumen-card li { margin-bottom: 15px; color: #ddd; }
+.resumen-card strong { color: #fff; font-size: 1.1em; }
+
+/* --- ADAPTACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    .página { flex-direction: column; padding: 10px; width: 95%; margin: 10px auto; }
+    .sidebar { width: 100%; }
+    .resumen-card { padding: 20px; }
+}

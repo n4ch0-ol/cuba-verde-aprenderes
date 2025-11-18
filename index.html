@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="página geografía.css">
+    <title>Inicio - Cuba.Energy</title>
+</head>
+<body>
+    <div class="página">
+        <aside class="sidebar">
+            <h1>Cuba.Energy</h1>
+            <h2>EcoAvance</h2>
+            <div class="estado-sistema">
+                <p>Estado: <span style="color:green;">● Operativo</span></p>
+                <p>Versión: 1.0</p>
+            </div>
+        </aside>
+
+        <main class="main">
+            <section class="card">
+                <h3>Menú Principal</h3>
+                <div class="recuadros-grid">
+                    <a href="micasa-app.html" class="link-box">
+                        <h2>Mi Casa App</h2><p>Funciones</p>
+                    </a>
+                    <a href="quienes-somos.html" class="link-box">
+                        <h2>Quiénes Somos</h2><p>Nosotros</p>
+                    </a>
+                    <a href="porque-estamos.html" class="link-box">
+                        <h2>Porqué Estamos</h2><p>Misión</p>
+                    </a>
+                    <a href="cuba-verde.html" class="link-box">
+                        <h2>Cuba Verde</h2><p>Nacional</p>
+                    </a>
+                    <a href="proyectos-internacionales.html" class="link-box">
+                        <h2>Proy. Intl.</h2><p>Global</p>
+                    </a>
+                    <a href="consumo-y-reportes.html" class="link-box">
+                        <h2>Reportes</h2><p>Datos</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Mapa de Red en Tiempo Real</h3>
+                <p>Haz clic en los sectores para reportar fallas.</p>
+                <div id="mapa" class="mapa"></div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn" onclick="simularCorte()">⚡ Simular</button>
+                    <button class="btn" style="background:#d32f2f;" onclick="limpiarMapa()">🧹 Limpiar</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Calculadora de Consumo</h3>
+                <div style="display:flex; gap:20px; flex-wrap:wrap;">
+                    <div style="flex:1;">
+                        <label>Potencia (Watts):</label>
+                        <input type="number" id="watts" placeholder="Ej: 100">
+                    </div>
+                    <div style="flex:1;">
+                        <label>Horas uso diario:</label>
+                        <input type="number" id="horas" placeholder="Ej: 5">
+                    </div>
+                </div>
+                <button class="btn" onclick="calcular()">Calcular Gasto</button>
+                <div id="resultado-calc" class="resultado"></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // --- LÓGICA MAPA ---
+        const mapa = document.getElementById('mapa');
+        function crearMapa() {
+            mapa.innerHTML = '';
+            for(let i=0; i<8; i++){
+                let fila = document.createElement('div');
+                fila.className = 'map-row';
+                for(let j=0; j<12; j++){
+                    let celda = document.createElement('div');
+                    celda.className = 'map-cell';
+                    celda.onclick = function() { this.classList.toggle('alert'); };
+                    fila.appendChild(celda);
+                }
+                mapa.appendChild(fila);
+            }
+        }
+        
+        window.simularCorte = function() {
+            let celdas = document.querySelectorAll('.map-cell');
+            for(let k=0; k<3; k++){
+                let r = celdas[Math.floor(Math.random() * celdas.length)];
+                r.classList.add('alert');
+            }
+            alert("⚠️ Cortes detectados en la red.");
+        }
+
+        window.limpiarMapa = function() {
+            document.querySelectorAll('.map-cell').forEach(c => c.classList.remove('alert'));
+        }
+
+        // --- LÓGICA CALCULADORA ---
+        window.calcular = function() {
+            let w = parseFloat(document.getElementById('watts').value);
+            let h = parseFloat(document.getElementById('horas').value);
+            let res = document.getElementById('resultado-calc');
+            
+            if(isNaN(w) || isNaN(h)) { alert("Ingresa números válidos."); return; }
+            
+            let kwh = (w * h) / 1000;
+            let costo = kwh * 3.50; // Precio ficticio
+            
+            res.style.display = 'block';
+            res.innerHTML = `Consumo: ${kwh.toFixed(2)} kWh<br>Costo: $${costo.toFixed(2)} CUP`;
+        }
+
+        crearMapa();
+    </script>
+</body>
+</html>
